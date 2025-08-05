@@ -38,33 +38,33 @@ jobs:
           name: data-artifact
           path: ./data
 
-  deploy-github-pages:
-    needs: update-data
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8.4.0
-      - run: pnpm install --frozen-lockfile
-      - uses: actions/download-artifact@v4
-        with:
-          name: data-artifact
-          path: ./data
-      - name: Get repository name
-        run: echo "REPOSITORY_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> $GITHUB_ENV
-      - run: pnpm build
-        env:
-          REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-      - id: deployment
-        uses: actions/deploy-pages@v4
+#   deploy-github-pages:
+#     needs: update-data
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: '20'
+#       - uses: pnpm/action-setup@v3
+#         with:
+#           version: 8.4.0
+#       - run: pnpm install --frozen-lockfile
+#       - uses: actions/download-artifact@v4
+#         with:
+#           name: data-artifact
+#           path: ./data
+#       - name: Get repository name
+#         run: echo "REPOSITORY_NAME=$(echo ${{ github.repository }} | cut -d'/' -f2)" >> $GITHUB_ENV
+#       - run: pnpm build
+#         env:
+#           REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
+#       - uses: actions/configure-pages@v4
+#       - uses: actions/upload-pages-artifact@v3
+#         with:
+#           path: ./out
+#       - id: deployment
+#         uses: actions/deploy-pages@v4
 
   deploy-vercel:
     needs: update-data
