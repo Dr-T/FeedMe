@@ -24,6 +24,11 @@ export const config = {
       category: "科技资讯",
     },
     {
+      name: "OpenAI News",
+      url: "https://openai.com/news/rss.xml",
+      category: "科技资讯",
+    },
+    {
       name: "Github 今日热门",
       url: "https://rsshub.rssforever.com/github/trending/daily/any",
       category: "代码项目",
@@ -56,6 +61,11 @@ export const config = {
     {
       name: "Simon Willison's Weblog",
       url: "https://simonwillison.net/atom/everything/",
+      category: "技术博客",
+    },
+    {
+      name: "Microsoft Research",
+      url: "https://www.microsoft.com/en-us/research/feed/",
       category: "技术博客",
     },
     // {

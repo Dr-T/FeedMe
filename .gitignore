@@ -37,6 +37,7 @@ Thumbs.db
 # IDE
 .idea/
 .vscode/
+.claude/
 *.sublime-project
 *.sublime-workspace
 
@@ -48,3 +49,4 @@ logs
 data/
 
 .cursorrules
+AGENTS.md
